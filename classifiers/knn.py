@@ -64,7 +64,7 @@ def predict_with_saved_model(category_tree, service_name, model_load_path):
     vectorizer, knn_model = joblib.load(model_load_path)
 
     # Transform input data using the vectorizer
-    input_text = f"{category_tree.lower()} > {service_name.lower()}"
+    input_text = f"{str(category_tree).lower()} > {str(service_name).lower()}"
     input_tfidf = vectorizer.transform([input_text])
 
     # Make predictions on the input data
