@@ -3,11 +3,11 @@ CREATE DATABASE bookizon_books_knowledge_discovery;
 CREATE TABLE time
 (
     date_time_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    year         INT(4)              NOT NULL,
-    month        INT(2)              NOT NULL,
-    day          INT(2)              NOT NULL,
-    hour         INT(2)              NOT NULL,
-    minutes      INT(2)              NOT NULL
+    year         VARCHAR(4)              NOT NULL,
+    month        VARCHAR(2)              NOT NULL,
+    day          VARCHAR(2)              NOT NULL,
+    hour         VARCHAR(2)              NOT NULL,
+    minutes      VARCHAR(2)              NOT NULL
 );
 
 CREATE TABLE services
@@ -28,7 +28,7 @@ CREATE TABLE shops
 (
     shop_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     lat     VARCHAR(255),
-    `long`  VARCHAR(255)
+    lng  VARCHAR(255)
 );
 
 CREATE TABLE books
