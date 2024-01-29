@@ -1,9 +1,17 @@
 import sys
 from classifiers import classifier
+from database.querybuilder import QueryBuilder
+from preparation import source_data
 
 
 def main():
-    # classifier.test()
+    source_qb = QueryBuilder(host='localhost', user='root', password='root', database='bookizon_app', port=8889)
+    dest_qb = QueryBuilder(host='localhost', user='root', password='root',
+                                     database='bookizon_books_knowledge_discovery', port=8889)
+    source_data.import_services(source_qb, dest_qb)
+    source_data.import_customers(source_qb, dest_qb)
+    source_data.import_shops(source_qb, dest_qb)
+    source_data.import_books(source_qb, dest_qb)
     pass
 
 

@@ -1,5 +1,6 @@
 CREATE DATABASE bookizon_books_knowledge_discovery;
 
+USE bookizon_books_knowledge_discovery;
 CREATE TABLE time
 (
     date_time_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -9,12 +10,14 @@ CREATE TABLE time
     hour         VARCHAR(2)              NOT NULL,
     minutes      VARCHAR(2)              NOT NULL
 );
+alter table time add index(year), add index(month), add index(day), add index (hour), add index (minutes);
 
 CREATE TABLE services
 (
     service_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name       VARCHAR(255)        NOT NULL
 );
+alter table services add std_name varchar(255) default null;
 
 CREATE TABLE customers
 (
