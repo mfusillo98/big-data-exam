@@ -2,7 +2,10 @@ from app.database.database import get_db
 from app.utils.geolocationUtils import sum_km_to_coordinates
 
 
-# Avrage price in a geolcated area
+'''
+1 Prezzo medio di un servizio in un area geolocalizzata
+'''
+
 def get_geo_area_average_service_price(service_id, lat, long, km_radius):
     db = get_db()
 

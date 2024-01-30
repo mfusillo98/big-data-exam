@@ -2,6 +2,10 @@ from app.database.database import get_db
 from app.utils.geolocationUtils import sum_km_to_coordinates
 
 
+'''
+2 Ranking dei servizi più prenotati in un area geolocalizzata in un certo periodo dell’anno
+'''
+
 def get_geo_area_ranking_booked_services_in_date_range(lat, long, km_radius, date_start, date_end):
     db = get_db()
 
