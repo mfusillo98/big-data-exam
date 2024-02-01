@@ -56,3 +56,8 @@ CREATE TABLE books
     foreign key (shop_id) references shops (shop_id) on update cascade on delete set null
 );
 
+ALTER TABLE time
+ADD `day_of_week` int(1) NOT NULL;
+
+UPDATE `time`
+SET `day_of_week` = DAYOFWEEK(CONCAT(`year`, '-', `month`, '-', `day`));

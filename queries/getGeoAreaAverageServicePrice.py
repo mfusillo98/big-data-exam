@@ -26,5 +26,4 @@ def get_geo_area_average_service_price(service_id, lat, long, km_radius):
     return result[0]['avg_price'] if result[0]['avg_price'] else 0
 
 
-'''EXAMPLE'''
-print(get_geo_area_average_service_price(3, 40.5913901, 17.10919, 5))
+#print(get_geo_area_average_service_price(3, 40.5913901, 17.10919, 5))

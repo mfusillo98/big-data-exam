@@ -31,4 +31,4 @@ def get_geo_area_average_users_books_in_date_range(lat, long, km_radius, date_st
 
 
 
-print(get_geo_area_average_users_books_in_date_range(40.5913901, 17.10919, 5, "2023-01-01", "2024-01-31"))
+#print(get_geo_area_average_users_books_in_date_range(40.5913901, 17.10919, 5, "2023-01-01", "2024-01-31"))
