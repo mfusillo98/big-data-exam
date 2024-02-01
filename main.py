@@ -5,8 +5,9 @@ from preparation import source_data
 
 
 def main():
-    source_qb = QueryBuilder(host='localhost', user='root', password='root', database='bookizon', port=8888)
-    dest_qb = QueryBuilder(host='localhost', user='root', password='root', database='bookizon_books_knowledge_discovery', port=8888)
+    source_qb = QueryBuilder(host='localhost', user='root', password='root', database='bookizon_app', port=8889)
+    dest_qb = QueryBuilder(host='localhost', user='root', password='root',
+                                     database='bookizon_books_knowledge_discovery', port=8889)
     source_data.import_services(source_qb, dest_qb)
     source_data.import_customers(source_qb, dest_qb)
     source_data.import_shops(source_qb, dest_qb)
