@@ -19,7 +19,8 @@ def get_geo_area_best_days_hours_for_books(lat, long, km_radius):
           "WHERE sh.lat <= %s AND sh.lat >= %s " \
           "AND sh.lng <= %s AND sh.lng >= %s " \
           "GROUP BY t.day_of_week, t.hour " \
-          "ORDER BY reservations DESC"
+          "ORDER BY reservations DESC " \
+          "LIMIT 10 "
 
     values = [max_lat, min_lat, max_long, min_long]
     result = db.execute_select(query, values)

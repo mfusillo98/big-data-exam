@@ -12,7 +12,7 @@ def get_geo_area_ranking_booked_services_in_date_range(lat, long, km_radius, dat
     max_lat, max_long = sum_km_to_coordinates(lat, long, km_radius)
     min_lat, min_long = sum_km_to_coordinates(lat, long, -km_radius)
 
-    query ="SELECT COUNT(*) as reservation, b.service_id, sr.name " \
+    query ="SELECT COUNT(*) as reservation, sr.std_name " \
           "FROM `books` b " \
           "LEFT JOIN time AS t ON b.book_date_id = t.date_time_id " \
           "LEFT JOIN shops sh on b.shop_id = sh.shop_id " \
@@ -20,12 +20,14 @@ def get_geo_area_ranking_booked_services_in_date_range(lat, long, km_radius, dat
           "WHERE (CONCAT(t.year, '-', t.month, '-', t.day) BETWEEN %s AND %s) " \
           "AND sh.lat <= %s AND sh.lat >= %s " \
           "AND sh.lng <= %s AND sh.lng >= %s " \
-          "GROUP BY b.service_id " \
-          "ORDER BY reservation DESC"
+          "AND b.service_id IS NOT NULL " \
+          "GROUP BY sr.std_name " \
+          "ORDER BY reservation DESC " \
+          "LIMIT 10 "
 
     values = [date_start, date_end, max_lat, min_lat, max_long, min_long]
     result = db.execute_select(query, values)
 
     return result
 
-#print(get_geo_area_ranking_booked_services_in_date_range(40.5913901, 17.10919, 5, "2023-01-01", "2024-01-31"))
+#print(get_geo_area_ranking_booked_services_in_date_range(40.5913901, 17.10919, 200, "2023-01-01", "2024-01-31"))
